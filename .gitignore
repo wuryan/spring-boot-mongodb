@@ -1,0 +1,10 @@
+#intellij ide files
+*.iml
+.idea/
+
+# others
+target/
+logs/
+
+# OSX file
+.store
