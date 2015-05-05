@@ -13,8 +13,8 @@
 - Import the project to your java IDE.
 - Config the spring boot connection uri, plz modify the project -> resources -> applicatoin.properties file.
 - Run the RunApplication.java
-- Broswe the *****localhost:8080/api/v/save***** to insert a document to your mongodb server.
-- Broswe the *****localhost:8080/api/v/{id}***** to view a document in JSON data format.  
+- Broswe the ****localhost:8080/api/v/save**** to insert a document to your mongodb server.
+- Broswe the ****localhost:8080/api/v/{id}**** to view a document in JSON data format.
 
 ###<i class="icon-bullhorn"></i>Report###
 - If your find any bug, plz write email to me, my email address is zhouxy.vortex@gmail.com or you can write the bug description on issures.[https://github.com/JameChou/spring-boot-mongodb/issues](https://github.com/JameChou/spring-boot-mongodb/issues)
