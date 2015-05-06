@@ -1,13 +1,18 @@
 package com.james.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * @author James Chow
  * @createdate 2015/5/5
  * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
+@Document
 public class Person {
 
+    @Id
     private String id;
 
     private String name;

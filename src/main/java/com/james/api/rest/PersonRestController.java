@@ -5,6 +5,7 @@ import com.james.ex.ErrorCode;
 import com.james.services.PersonServices;
 import com.james.vo.OperateMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -69,11 +70,33 @@ public class PersonRestController {
 
     @RequestMapping(value = "/age/{minAge}/{maxAge}", method = RequestMethod.GET)
     public List<Person> findByAge(@PathVariable("minAge") int minAge, @PathVariable("maxAge") int maxAge) {
-        return personServices.findByAge(minAge, maxAge);
+        return personServices.findByAgeSpringData(minAge, maxAge);
+//        return personServices.findByAge(minAge, maxAge);
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Person find(@PathVariable("id") String id) {
         return personServices.findById(id);
     }
+
+    @RequestMapping(value = "/page/{page}/{limit}", method = RequestMethod.GET)
+    public Page<Person> findByPage(@PathVariable("page") int page, @PathVariable("limit") int limit) {
+        return personServices.findByPage(page, limit);
+    }
+
+    @RequestMapping(value = "/status/{status}", method = RequestMethod.GET)
+    public List<Person> findByStatus(@PathVariable("status") String status) {
+        return personServices.findByStatus(status);
+    }
+
+    @RequestMapping(value = "/name/like/{name}", method = RequestMethod.GET)
+    public List<Person> findByNameLike(@PathVariable("name") String name) {
+        return personServices.findByNameLike(name);
+    }
+
+    @RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
+    public List<Person> findByName(@PathVariable("name") String name) {
+        return personServices.findByNameQuery(name);
+    }
+
 }
