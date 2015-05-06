@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @author James Chow
  * @createdate 2015/5/5
@@ -27,6 +29,11 @@ public class PersonServices {
 
     public Person findById(String id) {
         return personRepository.findById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Person> findByAge(int minAge, int maxAge) {
+        return personRepository.findPersonByAge(minAge, maxAge);
     }
 
 }
