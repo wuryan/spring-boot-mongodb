@@ -25,6 +25,10 @@ public class Person {
 
     private int sal;
 
+    private String imgUrl;
+
+    private String description;
+
     public Person(String id, String name, int age, String status, int gender, int sal) {
         this.id = id;
         this.name = name;
@@ -34,12 +38,30 @@ public class Person {
         this.sal = sal;
     }
 
-    public Person(String name, int age, String status, int gender, int sal) {
+    public Person(String name, int age, String status, int gender, int sal, String imgUrl, String description) {
         this.name = name;
         this.age = age;
         this.status = status;
         this.gender = gender;
         this.sal = sal;
+        this.imgUrl = imgUrl;
+        this.description = description;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Person() {
@@ -102,6 +124,8 @@ public class Person {
                 ", status='" + status + '\'' +
                 ", gender=" + gender +
                 ", sal=" + sal +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

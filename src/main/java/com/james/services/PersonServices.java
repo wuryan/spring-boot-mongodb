@@ -53,6 +53,10 @@ public class PersonServices {
         return result;
     }
 
+    public List<Person> findAll() {
+        return (List<Person>) springDataPersonRepository.findAll();
+    }
+
 
     public List<Person> findByStatus(String status) {
         return springDataPersonRepository.findByStatus(status);
