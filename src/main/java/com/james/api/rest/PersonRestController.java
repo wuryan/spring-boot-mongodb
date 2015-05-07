@@ -33,6 +33,10 @@ public class PersonRestController {
         String[] names = new String[]{"James", "David", "Chou", "Cedric",
                 "Hermoine", "Ron", "Fred", "Geroge", "Ginny", "Voldermort"};
         String[] status = new String[]{"A", "B"};
+        String[] imgArr = new String[]{"img/avatars/avatar.png", "img/avatars/avatar1.png",
+                "img/avatars/avatar2.png", "img/avatars/avatar3.png",
+                "img/avatars/avatar4.png", "img/avatars/avatar5.png",};
+
         // init 10 person data to database
         try {
             for (int i = 0; i < 10; i++) {
@@ -41,7 +45,8 @@ public class PersonRestController {
                 int sal = random.nextInt(10000) + 2000;
                 int gender = random.nextInt(2);
                 int statusIndex = random.nextInt(2);
-                Person person = new Person(names[i], age, status[statusIndex], gender, sal);
+                int imgIndex = random.nextInt(6);
+                Person person = new Person(names[i], age, status[statusIndex], gender, sal, imgArr[imgIndex], "A nice guy, brave =======" + (i + 1));
                 personServices.insert(person);
             }
         } catch (Exception e) {
@@ -97,6 +102,11 @@ public class PersonRestController {
     @RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
     public List<Person> findByName(@PathVariable("name") String name) {
         return personServices.findByNameQuery(name);
+    }
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<Person> findAll() {
+        return personServices.findAll();
     }
 
 }
