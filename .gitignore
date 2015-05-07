@@ -5,6 +5,11 @@
 # others
 target/
 logs/
+tmp
 
 # OSX file
-.store
+.DS_STORE
+
+# npm & bower files
+node_modules
+bower_components
